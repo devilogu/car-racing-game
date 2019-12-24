@@ -2,9 +2,9 @@
 1. 클래스 객체 : Car, Racing 정의
 3. Main 클래스 선언
 4. Racing클래스 지역 변수 정의 
-5. Racing클래스 지역 함수 정의
+5. Racing클래스 지역 메소드 정의
 
-Racing클래스 지역 함수 목록
+Racing클래스 지역 메소드 목록
 - 생성자 및 getter,setter
 - 자동차 이름 여러개 쉼표(,)로 구분해서 사용자 입력받기
 - 횟수 k 사용자 입력받기

@@ -34,13 +34,22 @@ public class Racing {
 	}
 	
 	void PrintCarsPosition() {
-		System.out.println(" 실행 결과");
-		for(int i=0 ; i<this.k ; i++) {
+		System.out.println("실행 결과");
+		for(int i=0 ; i<cars.length ; i++) {
 			System.out.print(cars[i].getName()+" : ");
 			for(int j=0 ; j<cars[i].getPosition();j++)
 				System.out.println("-");
-			
 		}
 	}
+	
+	void CarsMove() {
+		int random;
+		for(int i=0 ; i<cars.length ; i++) {
+			random = (int)(Math.random()*9);
+			if(random>3)
+				cars[i].move();
+		}
+	}
+	
 	
 }

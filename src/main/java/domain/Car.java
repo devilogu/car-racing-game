@@ -7,6 +7,10 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    
+    public void Move() {
+    	position++;
+    }
 
-    // ì¶”ê°€ ê¸°ëŠ¥ êµ¬í˜„
+    // Ãß°¡ ±â´É ±¸Çö
 }

@@ -1,9 +1,16 @@
 package domain;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-public class Racing {
+/*
+ * Racing
+ * 
+ * 19.12.26
+ * 
+ * https://github.com/OHHAKO
+ * */
+public class  Racing {
 	private Car cars[];
 	private String carNames[];
 	private int k;
@@ -14,29 +21,27 @@ public class Racing {
 	}
 	
 	void init() {
-		MakeCar();
-		this.k = MakeTryNumber();
+		makeCar();
+		this.k = makeTryNumber();
 	}
 	
-	void MakeCar() {
+	void makeCar() {
 		sc = new Scanner(System.in);
 		System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
 		String names = sc.next();
 		carNames = names.split(",");
 		cars = new Car[carNames.length];
-		
+	
 		for(int i=0 ; i<carNames.length ; i++) 
-			cars[i] = new Car(carNames[i]);
-		
+			cars[i] = new Car(carNames[i]);	
 	}
 	
-	int MakeTryNumber() {
+	int makeTryNumber() {
 		System.out.println("시도할 회수는 몇회인가요?");
 		return sc.nextInt();
 	}
 	
-	void PrintCarsPosition() {
-		
+	void printCarsPosition() {
 		for(int i=0 ; i<cars.length ; i++) {
 			System.out.print(cars[i].getName()+" : ");
 			for(int j=0 ; j<cars[i].getPosition();j++)
@@ -59,14 +64,13 @@ public class Racing {
 		System.out.println("실행 결과");
 		for(int i=0 ; i < k ; i++) {
 			carsMove();		
-			PrintCarsPosition();
+			printCarsPosition();
 		}
 		findWinner();
-		
 	}
 	
+	/*position 이 가장 큰 Car이름 찾기*/
 	void findWinner(){
-		//position 가장 큰 Car 찾기
 		List<String> winners;
 		int maxValue = cars[0].getPosition();
 		for(int i=0 ; i<cars.length ; i++) {
@@ -80,7 +84,7 @@ public class Racing {
 		System.out.println("가 최종 우승했습니다.");
 	}
 	
-	//중복되는 승자 객체 list에 넣기
+	/*중복되는 승자 객체 list에 넣기*/
 	List<String> findCowinner(int maxValue) {
 		List<String> winners = new ArrayList<String>();
 		for(int i=0 ; i<cars.length ;i++) {
@@ -89,8 +93,5 @@ public class Racing {
 			}
 		}
 		return winners;
-	}
-	
-	
-	
+	}	
 }

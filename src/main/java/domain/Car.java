@@ -6,5 +6,14 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-    }   
+    }
+    
+    public int getPosition() {
+    	return position;
+    }
+    
+    /* 자동차 위치 변경 */
+    public void carPosition(int num) {
+    	position += num;
+    }
 }

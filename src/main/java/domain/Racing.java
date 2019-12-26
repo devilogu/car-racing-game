@@ -1,4 +1,6 @@
 package domain;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Racing {
@@ -13,7 +15,7 @@ public class Racing {
 	
 	void init() {
 		MakeCar();
-		MakeTryNumber();
+		this.k = MakeTryNumber();
 	}
 	
 	void MakeCar() {
@@ -28,13 +30,13 @@ public class Racing {
 		
 	}
 	
-	void MakeTryNumber() {
+	int MakeTryNumber() {
 		System.out.println("시도할 회수는 몇회인가요?");
-		this.k = sc.nextInt();
+		return sc.nextInt();
 	}
 	
 	void PrintCarsPosition() {
-
+		
 		for(int i=0 ; i<cars.length ; i++) {
 			System.out.print(cars[i].getName()+" : ");
 			for(int j=0 ; j<cars[i].getPosition();j++)
@@ -54,12 +56,41 @@ public class Racing {
 	}
 	
 	void road() {
+		System.out.println("실행 결과");
 		for(int i=0 ; i < k ; i++) {
-			carsMove();
-			System.out.println("실행 결과");
+			carsMove();		
 			PrintCarsPosition();
 		}
+		findWinner();
+		
 	}
+	
+	void findWinner(){
+		//position 가장 큰 Car 찾기
+		List<String> winners;
+		int maxValue = cars[0].getPosition();
+		for(int i=0 ; i<cars.length ; i++) {
+			if(maxValue < cars[i].getPosition()) {
+				maxValue = cars[i].getPosition();
+			}
+		}
+		winners = findCowinner(maxValue);
+		for(String w : winners)
+			System.out.print(w+" ");
+		System.out.println("가 최종 우승했습니다.");
+	}
+	
+	//중복되는 승자 객체 list에 넣기
+	List<String> findCowinner(int maxValue) {
+		List<String> winners = new ArrayList<String>();
+		for(int i=0 ; i<cars.length ;i++) {
+			if(maxValue==cars[i].getPosition()) {
+				winners.add(cars[i].getName());
+			}
+		}
+		return winners;
+	}
+	
 	
 	
 }

@@ -8,12 +8,16 @@ public class Car {
         this.name = name;
     }
     
+    public String getName() {
+    	return name;
+    }
+    
     public int getPosition() {
     	return position;
     }
     
     /* 자동차 위치 변경 */
-    public void carPosition(int num) {
-    	position += num;
+    public void carPosition() {
+    	position += 1;
     }
 }

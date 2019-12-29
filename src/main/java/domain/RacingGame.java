@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class RacingGame {
 	List<Car> carList;
-	List<String> winnerList;
 	
 	int count = 0;
 
@@ -14,7 +13,6 @@ public class RacingGame {
 
 	public RacingGame() {
 		carList = new ArrayList<>();
-		winnerList = new ArrayList<>();
 	}
 
 	/* 차 이름과 시도 횟수 입력 */
@@ -60,7 +58,7 @@ public class RacingGame {
 			moveCar();
 			printResult();
 		}
-		getWinner();
+		printWinner();
 	}
 
 	/* 자동차의 이름 쉼표로 구분하여 분리 후 리스트에 저장 */
@@ -101,7 +99,19 @@ public class RacingGame {
 			}
 		}
 	}
-
+	
+	/* get winner */
+	public List<String> getWinner(){
+		List<String> winnerList = new ArrayList<String>();
+		
+		for (int i = 0; i < carList.size(); i++) {
+			int maxPosition = getMaxPosition();
+			if (carList.get(i).getPosition() == maxPosition) {
+				winnerList.add(carList.get(i).getName());
+			}
+		}
+		return winnerList;
+	}
 	/* 실행 결과 출력 */
 	public void printResult() {
 		for (int i = 0; i < carList.size(); i++) {
@@ -123,23 +133,13 @@ public class RacingGame {
 		return max;
 	}
 
-	/* 우승자 리스트에 삽입 */
-	public void getWinner() {
-		for (int i = 0; i < carList.size(); i++) {
-			int maxPosition = getMaxPosition();
-			if (carList.get(i).getPosition() == maxPosition) {
-				winnerList.add(carList.get(i).getName());
-			}
-		}
-		printWinner();
-	}
 
 	public void printWinner() {
-		int s = winnerList.size();
-
-		for (int i = 0; i < winnerList.size(); i++) {
-			System.out.print(winnerList.get(i));
-			if (s-- > 1) {
+		List<String> winner = getWinner();
+		int length = winner.size();
+		for (int i = 0; i < length; i++) {
+			System.out.print(winner.get(i));
+			if (length-- > 1) {
 				System.out.print(",");
 			}
 		}

@@ -1,8 +1,8 @@
 구현 기능 목록
 1. 클래스 객체 : Car, Racing 정의
-3. Main 클래스 선언
-4. Racing클래스 지역 변수 정의 
-5. Racing클래스 지역 메소드 정의
+2. Main 클래스 선언
+3. Racing클래스 지역 변수 정의 
+4. Racing클래스 지역 메소드 정의
 
 Racing클래스 지역 메소드 목록
 - 생성자 및 getter,setter

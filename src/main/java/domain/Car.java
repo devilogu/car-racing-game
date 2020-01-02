@@ -7,6 +7,17 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
+    
+ // Ãß°¡ ±â´É ±¸Çö
+    public String getName() {
+    	return this.name;
+    }
+    public int getPosition() {
+    	return this.position;
+    }
+    public void move() {
+    	this.position++;
+    }
 
-    // ì¶”ê°€ ê¸°ëŠ¥ êµ¬í˜„
+    
 }

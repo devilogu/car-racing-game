@@ -7,6 +7,17 @@ public class Car {
     public Car(String name) {
         this.name = name;
     }
-
-    // 추가 기능 구현
+    
+    public String getName() {
+    	return name;
+    }
+    
+    public int getPosition() {
+    	return position;
+    }
+    
+    /* 자동차 위치 변경 */
+    public void carPosition() {
+    	position += 1;
+    }
 }
